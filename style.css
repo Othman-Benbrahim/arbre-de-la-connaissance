@@ -186,3 +186,5 @@ h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:700;letter-spacing:-.01e
 .projet-texte b{font-weight:600}
 .motivation{background:var(--carte);border:1px solid var(--trait);border-left:4px solid var(--encre);border-radius:14px;padding:18px 20px}
 .signature{display:block;margin-top:10px;font-family:Fraunces,Georgia,serif;font-size:18px}
+.etat{background:var(--carte);border:1px solid var(--chaud);border-radius:14px;padding:18px 20px}
+.etat ul{margin:10px 0 0 18px;display:grid;gap:8px;font-size:15.5px}

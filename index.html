@@ -22,13 +22,13 @@
   <div class="hero">
     <p class="sur">Arbre de la connaissance · recherche en cours</p>
     <h1>Lire la structure d'une situation<br>avant de la prévoir</h1>
-    <p class="chapeau">Seize structures transversales, présentes de la matière aux institutions, et treize strates de la réalité.
-      Un alphabet réduit pour décrire n'importe quelle situation, puis en dérouler les suites possibles.</p>
+    <p class="chapeau">Seize structures transversales, qu'on retrouve dans des domaines très éloignés, et treize strates de la réalité.
+      Un alphabet réduit, et sans doute incomplet, pour lire une situation, puis en dérouler les suites possibles.</p>
     <ol class="chaine" aria-label="De la syntaxe au contexte">
       <li><b>Syntaxe</b><span>un alphabet de 16 cartes</span></li>
       <li><b>Fait</b><span>chaque carte cite ses faits</span></li>
       <li><b>Situation</b><span>cartes ancrées dans une strate</span></li>
-      <li><b>Contexte</b><span>suites possibles, chiffrées par du code</span></li>
+      <li><b>Contexte</b><span>suites possibles, chiffrées par un calcul fixe</span></li>
     </ol>
   </div>
 </header>
@@ -45,15 +45,27 @@
       comme pour une alliance ; un réseau, une hiérarchie, un cycle se retrouvent partout. L'alphabet situationnel
       rassemble ces structures en un petit nombre de symboles, seize cartes, et les croise avec treize strates de la
       réalité. Chaque carte est le point de départ d'une branche : les situations qu'elle tend à produire ensuite.
-      Ensemble, ces branches forment un arbre de la connaissance.</p>
+      Ensemble, ces branches doivent former un arbre de la connaissance ; un arbre à tronc unique ou une forêt à facettes, la question n'est pas tranchée.</p>
     <p><b>Dans quel but.</b> Partir de la syntaxe pour arriver au fait, à la situation, puis au contexte. Lire une
       situation donnée avec ce vocabulaire limité, en saisir l'ensemble plutôt qu'un seul de ses aspects, puis
       dérouler ses suites possibles et leur donner une probabilité : une simulation situationnelle, une forme de
-      précognition, mais contrôlée et mise à l'épreuve.</p>
-    <p><b>Comment c'est éprouvé.</b> Un bot de prévision joue l'alphabet sur des questions réelles dont personne ne
-      connaît encore la réponse, et le compare à un simple taux de base. Le but n'est pas de prouver que l'alphabet
+      précognition, mais contrôlée et mise à l'épreuve. C'est l'horizon. Ce que fait l'outil aujourd'hui est plus
+      modeste : un recalibrage borné d'une fréquence de base, auditable.</p>
+    <p><b>Comment c'est éprouvé.</b> Un <a href="https://github.com/Othman-Benbrahim/metac-bot-template">bot de prévision</a>
+      joue l'alphabet sur des questions réelles de Metaculus dont personne ne connaît encore la réponse, et sur des
+      questions déjà résolues de ForecastBench ; il le compare à un taux de base. Le but n'est pas de prouver que l'alphabet
       gagne, mais de trouver la meilleure prévision possible : l'alphabet est à la fois un défi et un instrument, et
       ce qu'il ne sait pas faire est aussi un résultat.</p>
+    <div class="etat">
+      <p class="num">Où en est le projet · 14 novembre 2026</p>
+      <ul>
+        <li>Sur Metaculus, aucune question jouée par le bot n'est encore résolue, et la lecture structurelle (C) n'y a encore produit aucun chiffre posté.</li>
+        <li>Sur les questions déjà résolues de ForecastBench, C n'a pas fait mieux que le taux de base ; en géopolitique, il a fait moins bien. Depuis le 14 novembre, le bot poste donc le taux de base là où C est calculé.</li>
+        <li>Les liens appris sur les issues n'ont pas battu la matrice stipulée : essai clos sans adoption.</li>
+        <li>Même dans le monde simulé du skill, avec un lecteur parfait, la règle de combinaison publiée (le produit) ne bat pas le taux de base ; les variantes « causes » et générative, en ombre, font mieux. C'est un désaccord mesuré entre la règle et le modèle du monde, non tranché.</li>
+        <li>Pour détecter l'écart attendu entre C et B, il faudrait plusieurs milliers de questions résolues.</li>
+      </ul>
+    </div>
     <p class="motivation"><b>Pourquoi je le fais.</b> Je suis développeur et chercheur indépendant. Ce qui m'intéresse,
       c'est la prévisibilité : ce qui, dans une situation, annonce déjà ce qui va suivre, jusqu'aux signaux faibles que
       l'on ne voit pas encore. Je travaille en source ouverte : le code, les règles et le registre des prévisions sont
@@ -90,7 +102,7 @@
     <p class="num">02 · Strates</p>
     <h2>Treize registres de la réalité</h2>
     <p>Une même carte se lit dans des strates éloignées : un seuil existe en physique comme en diplomatie.
-      La strate dit ce qui compte comme fait. Le chiffre n'est ouvert que là où une règle fixée à l'avance l'autorise.</p>
+      La strate dit ce qui compte comme fait. Les strates forment une liste plate et hétérogène (des niveaux d'organisation, des domaines, une échelle de temps), pas un axe ; les rangées ne servent qu'à dire si des agents intentionnels sont en jeu. Le chiffre n'est ouvert qu'en géopolitique, la seule strate où 13 des 16 cartes ont un équivalent sourcé.</p>
   </div>
   <div id="grille-strates" class="grille-strates"></div>
   <div id="detail-strate" class="detail-strate" aria-live="polite"></div>
@@ -111,7 +123,7 @@
   <div class="tete">
     <p class="num">04 · Lecture</p>
     <h2>Comment une lecture se construit</h2>
-    <p>Le modèle de langage lit ; le code décide. Rien de ce qui est calculé ne dépend d'une phrase du modèle.</p>
+    <p>Le modèle de langage lit et choisit : l'événement, la strate, les cartes, leurs ancrages et, souvent, la classe de référence. Le code vérifie les règles et fait l'arithmétique. Le partage n'est donc pas étanche : le registre a montré que le lecteur recopie en grande partie les liens de la matrice qu'on lui montre.</p>
   </div>
   <ol class="etapes">
     <li><b>Question</b><p>Une question datée, avec son horizon et son critère de résolution.</p></li>
@@ -133,7 +145,7 @@
   <div class="maquette">
     <div class="maq-gauche">
       <h3>Maquette du moteur</h3>
-      <p class="sous">Choisissez la carte dont on prévoit l'apparition, la fréquence de référence, puis les cartes ancrées. Version simplifiée : même strate, sans base de cas ni bande de sensibilité.</p>
+      <p class="sous">Choisissez la carte dont on prévoit l'apparition, la fréquence de référence, puis les cartes ancrées. Version simplifiée : même strate, sans base de cas ni bande de sensibilité. Cette maquette répond toujours ; une lecture réelle, le plus souvent, non : refusée, sans structure, ou hors de la strate chiffrée.</p>
       <label>Carte visée <select id="cible"></select></label>
       <label>Fréquence de référence f : <b id="f-val"></b><input id="f" type="range" min="1" max="90" value="20"></label>
       <div id="sources" class="sources"></div>
@@ -168,12 +180,13 @@
     <article><h3>Une décision datée</h3><p>Une ombre ne devient officielle que par une décision d'auteur, datée, qui cite la mesure qui la fonde.</p></article>
     <article><h3>Plusieurs lecteurs</h3><p>Le projet utilise plusieurs modèles. Le lecteur, c'est le modèle et sa version : deux lecteurs ne se mélangent jamais dans une même série.</p></article>
   </div>
-  <p class="engagement">Aucun chiffre de performance ne sera publié avant une calibration stable.</p>
+  <p class="engagement">Pas de chiffre de performance mis en avant tant que la calibration n'est pas stable. Les résultats bruts, négatifs compris, sont dans le <a href="https://github.com/Othman-Benbrahim/metac-bot-template/tree/main/registre">registre public</a> et les <a href="https://github.com/Othman-Benbrahim/metac-bot-template/tree/main/preenregistrements">pré-enregistrements</a>.</p>
 </section>
 </main>
 
 <footer class="pied">
-  <p>Othman Ben Brahim · <a href="https://github.com/Othman-Benbrahim/alphabet-situationnel">alphabet-situationnel</a>
+  <p>Othman Ben Brahim · <a href="https://github.com/Othman-Benbrahim/alphabet-situationnel">alphabet-situationnel</a> (le skill)
+    · <a href="https://github.com/Othman-Benbrahim/metac-bot-template">metac-bot-template</a> (le bot, son registre)
     · données de la page générées depuis le skill <span id="version"></span></p>
 </footer>
 

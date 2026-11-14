@@ -40,10 +40,10 @@ const THEORIE = {
    { source: "Dunn (1961), correction de Bonferroni", idee: "Le risque se partage entre les essais menés en parallèle.", fonde: "Risque de 5 % divisé par le nombre d'essais ouverts." },
    { source: "Neirz, Allende & Saavedra (2026)", idee: "Le bootstrap sur un seul échantillon réutilise la même coïncidence.", fonde: "Les doubles permutés des liens ; la stabilité reste descriptive." },
    { source: "S. Goedecke, « Writing is no longer proof of work » (2026)", idee: "Un texte ne prouve plus l'effort ni l'antériorité.", fonde: "La date du commit fait foi pour les pré-enregistrements, pas le texte." },
-   { source: "Lv et al. (ICML 2026) ; Blair, Procaccia & Tambe (NeurIPS 2026)", idee: "Généraliser au monde ouvert ; plongements de préférences.", fonde: "Monde synthétique : effacement des noms, triplets durs, négation." }
+   { source: "Lv et al. (ICML 2026) ; Blair, Procaccia & Tambe (NeurIPS 2026)", idee: "Généraliser au monde ouvert ; plongements de préférences.", fonde: "Monde synthétique : effacement des noms, triplets durs, négation. Limite : ce monde est tiré du modèle du skill lui-même." }
   ]},
   { famille: "Vocabulaire et complexité", couleur: "--r2", apports: [
-   { source: "ANSI/NISO Z39.19 ; ISO 25964", idee: "Vocabulaires contrôlés et facettes pour les domaines neufs et transversaux.", fonde: "Une forêt à facettes (structures × domaines) plutôt qu'un tronc unique ; vocabulaire et lectures ne se confondent pas." },
+   { source: "ANSI/NISO Z39.19 ; ISO 25964", idee: "Vocabulaires contrôlés et facettes pour les domaines neufs et transversaux.", fonde: "Une hypothèse à l'étude, non tranchée : une forêt à facettes (structures × domaines) plutôt qu'un arbre à tronc unique. Et une règle : le vocabulaire et les lectures ne se confondent pas." },
    { source: "Snowden, Cynefin", idee: "Le complexe ne se décompose pas en branches.", fonde: "Le tiers de POLARITÉ demandé au lecteur ; d'autres pistes de Snowden en ombre." },
    { source: "Pearl, Murphy, Heuer : ce qui est refusé", idee: "Ontologies « irréductibles », normativité sans marqueur, théâtre théorique.", fonde: "Refusés : ils rendraient le système moins réfutable." }
   ]}
@@ -51,7 +51,7 @@ const THEORIE = {
 
  // Logique du calcul, de la question à la probabilité.
  logique: [
-  { titre: "Fréquence de référence (bras B)", texte: "On part d'un taux de base : la fréquence de l'événement dans une classe de cas comparables. Quand une série de données mesure exactement le critère, c'est un compte fait par le code ; sinon, la médiane de trois estimations sur trois sources, dont le code refait l'arithmétique.", formule: "f" },
+  { titre: "Fréquence de référence (bras B)", texte: "On part d'un taux de base : la fréquence de l'événement dans une classe de cas comparables. Quand une série de données mesure exactement le critère, c'est un compte fait par le code. Sinon, c'est la médiane de trois estimations du modèle sur trois sources : le code refait l'arithmétique, mais la classe est choisie par le modèle. B n'est donc pas un témoin indépendant de C, et une erreur de classe touche les deux à la fois.", formule: "f" },
   { titre: "Multiplicateurs stipulés", texte: "Chaque carte ancrée qui, selon la matrice, fait apparaître la carte visée apporte un multiplicateur fixé par l'auteur selon la force du lien. Ces valeurs sont des hypothèses de travail, jamais estimées sur des données.", formule: "λ : forte 3 · moyenne 1,8 · faible 1,2" },
   { titre: "Combinaison", texte: "Le calcul publié est un score log-linéaire : il ajoute les log-multiplicateurs à la cote de la fréquence. Une autre strate abaisse le lien d'un cran ; des sources redondantes ne comptent qu'une fois. L'effet des cartes est plafonné.", formule: "logit p = logit f + Σ log λ" },
   { titre: "Persistance et disparition", texte: "Pour une carte déjà présente, la probabilité qu'elle persiste vient de son inertie sur trois mois, ramenée à la fenêtre de la question. La disparition est le complément.", formule: "r = inertie^(jours / 91,3)" },
@@ -61,7 +61,9 @@ const THEORIE = {
  limites: [
   "Tous les multiplicateurs étant ≥ 1, une carte ne peut que faire monter la probabilité d'une apparition : C gagne sur les OUI et perd sur les NON. Les freins et la correction symétrique, en ombre, testent l'autre sens.",
   "Multiplier les indices n'est exact que s'ils sont indépendants sachant l'événement ; des causes convergentes violent cette hypothèse.",
-  "Une bande de sensibilité étroite ne dit pas que la matrice est juste : une transition fausse la déplace à peine."
+  "Une bande de sensibilité étroite ne dit pas que la matrice est juste : une transition fausse la déplace à peine.",
+  "La règle publiée (le produit) contredit le modèle du monde du skill (un noisy-or) dès que deux cartes ou plus sont lues : le produit surestime. Dans le monde simulé, même un lecteur parfait ne bat pas le taux de base avec le produit ; les variantes en ombre, oui.",
+  "Le monde simulé est tiré du modèle génératif du skill : il mesure la capacité du lecteur à retrouver l'ontologie du skill, pas la validité de cette ontologie."
  ],
 
  // Hypothèses abordées. statut : adopte | ombre | essai | clos

@@ -115,7 +115,7 @@
   const RANGEE = {
     1: ["Sans intention", "--r1"], 2: ["Sans intention", "--r1"], 11: ["Sans intention", "--r1"],
     3: ["Agents et groupes", "--r2"], 4: ["Agents et groupes", "--r2"], 5: ["Agents et groupes", "--r2"],
-    6: ["Institutions", "--r3"], 7: ["Institutions", "--r3"], 8: ["Institutions", "--r3"], 13: ["Institutions", "--r3"],
+    6: ["Institutions", "--r3"], 7: ["Institutions", "--r3"], 8: ["Institutions", "--r3"], 13: ["Domaine ajouté (0.5.0)", "--r5"],
     9: ["Artefacts et durée", "--r4"], 10: ["Artefacts et durée", "--r4"], 12: ["Artefacts et durée", "--r4"],
   };
   const grille = document.getElementById("grille-strates"), det = document.getElementById("detail-strate");
@@ -132,7 +132,7 @@
       det.innerHTML = `<h3>${s.n} · ${s.nom}</h3>
         <p><b>Couvre :</b> ${s.couvre}</p>
         <p><b>Ce qui compte comme fait :</b> ${s.faits}</p>
-        <p>${chiffre ? "Strate où le chiffre est ouvert." : "Lecture scellée sans chiffre officiel : le chiffre s'ouvrira seulement si un critère fixé à l'avance est rempli."}</p>`;
+        <p>${chiffre ? "Seule strate où le chiffre est ouvert : 13 des 16 cartes y ont un équivalent sourcé." : "Lecture scellée sans chiffre officiel : le chiffre s'ouvrira seulement si un critère fixé à l'avance est rempli."}</p>`;
     });
     grille.appendChild(b);
   });
