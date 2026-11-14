@@ -1,5 +1,5 @@
 // Rédigé à la main depuis apports-theoriques.md (skill), README-alphabet.md (bot), essais.py, preenregistrements/
-// et les notes de référence du projet. Aucun chiffre de performance (règle : pas avant une calibration stable).
+// et les notes de référence du projet. Les chiffres sont dans index.html (« Où en est le projet »), négatifs compris.
 const THEORIE = {
 
  // Règle d'importation du skill : un concept n'entre que s'il ajoute un contrôle.

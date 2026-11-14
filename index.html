@@ -57,13 +57,22 @@
       gagne, mais de trouver la meilleure prévision possible : l'alphabet est à la fois un défi et un instrument, et
       ce qu'il ne sait pas faire est aussi un résultat.</p>
     <div class="etat">
-      <p class="num">Où en est le projet · 14 novembre 2026</p>
+      <p class="num">Où en est le projet · chiffres au 14 novembre 2026</p>
+      <p class="sous">Perte logarithmique moyenne : plus elle est basse, meilleure est la prévision. Ces chiffres sont négatifs pour l'alphabet, et publiés comme tels.</p>
+      <table class="chiffres">
+        <thead><tr><th>Mesure</th><th>Effectif</th><th>C (alphabet)</th><th>B (taux de base)</th></tr></thead>
+        <tbody>
+          <tr><td>ForecastBench, toutes lectures chiffrées (géopolitique et exploratoires)</td><td>337 lectures</td><td>0,769</td><td>0,631</td></tr>
+          <tr><td>dont géopolitique, seule strate où C peut être posté</td><td>93 lectures</td><td>0,800</td><td>0,495</td></tr>
+          <tr><td>Liens appris sur les issues, jeu de jugement (essai clos, non adopté)</td><td>123 lectures</td><td>0,660</td><td>0,659</td></tr>
+          <tr><td>Metaculus, questions réelles résolues</td><td>0</td><td>—</td><td>—</td></tr>
+        </tbody>
+      </table>
       <ul>
-        <li>Sur Metaculus, aucune question jouée par le bot n'est encore résolue, et la lecture structurelle (C) n'y a encore produit aucun chiffre posté.</li>
-        <li>Sur les questions déjà résolues de ForecastBench, C n'a pas fait mieux que le taux de base ; en géopolitique, il a fait moins bien. Depuis le 14 novembre, le bot poste donc le taux de base là où C est calculé.</li>
-        <li>Les liens appris sur les issues n'ont pas battu la matrice stipulée : essai clos sans adoption.</li>
-        <li>Même dans le monde simulé du skill, avec un lecteur parfait, la règle de combinaison publiée (le produit) ne bat pas le taux de base ; les variantes « causes » et générative, en ombre, font mieux. C'est un désaccord mesuré entre la règle et le modèle du monde, non tranché.</li>
-        <li>Pour détecter l'écart attendu entre C et B, il faudrait plusieurs milliers de questions résolues.</li>
+        <li>Une question peut avoir été lue plusieurs fois, par des versions ou des modèles différents : les effectifs comptent des lectures, pas des questions.</li>
+        <li>Conséquence : depuis le 14 novembre, le bot poste le taux de base là où C est calculé ; C reste calculé et scellé.</li>
+        <li>Dans le monde simulé du skill, avec un lecteur parfait, la règle de combinaison publiée perd 0,17 point de score sur le taux de base ; la variante générative, en ombre, en gagne environ 1. Il faudrait plus de 3 000 questions résolues pour détecter un écart de cette taille.</li>
+        <li>Un résultat encourageant, sur le taux de base lui-même : un modèle autorégressif des séries fait mieux que le compte simple sur 188 questions passées (0,666 contre 0,690) ; il est en essai sur des questions nouvelles.</li>
       </ul>
     </div>
     <p class="motivation"><b>Pourquoi je le fais.</b> Je suis développeur et chercheur indépendant. Ce qui m'intéresse,
@@ -180,7 +189,7 @@
     <article><h3>Une décision datée</h3><p>Une ombre ne devient officielle que par une décision d'auteur, datée, qui cite la mesure qui la fonde.</p></article>
     <article><h3>Plusieurs lecteurs</h3><p>Le projet utilise plusieurs modèles. Le lecteur, c'est le modèle et sa version : deux lecteurs ne se mélangent jamais dans une même série.</p></article>
   </div>
-  <p class="engagement">Pas de chiffre de performance mis en avant tant que la calibration n'est pas stable. Les résultats bruts, négatifs compris, sont dans le <a href="https://github.com/Othman-Benbrahim/metac-bot-template/tree/main/registre">registre public</a> et les <a href="https://github.com/Othman-Benbrahim/metac-bot-template/tree/main/preenregistrements">pré-enregistrements</a>.</p>
+  <p class="engagement">Les chiffres sont publiés tels qu'ils sont, négatifs compris (voir « Où en est le projet »). Le détail est dans le <a href="https://github.com/Othman-Benbrahim/metac-bot-template/tree/main/registre">registre public</a> et les <a href="https://github.com/Othman-Benbrahim/metac-bot-template/tree/main/preenregistrements">pré-enregistrements</a>.</p>
 </section>
 </main>
 

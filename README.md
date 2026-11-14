@@ -9,4 +9,4 @@ leurs liens, et la méthode du bot de prévision qui les met à l'épreuve.
 
 Publication : Settings → Pages → « Deploy from a branch », branche `main`, dossier `/`.
 
-Aucun chiffre de performance n'est publié ici avant une calibration stable.
+Les chiffres sont publiés tels qu'ils sont, négatifs compris (décision d'auteur du 2026-11-14).

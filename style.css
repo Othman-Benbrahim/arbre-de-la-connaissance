@@ -188,3 +188,8 @@ h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:700;letter-spacing:-.01e
 .signature{display:block;margin-top:10px;font-family:Fraunces,Georgia,serif;font-size:18px}
 .etat{background:var(--carte);border:1px solid var(--chaud);border-radius:14px;padding:18px 20px}
 .etat ul{margin:10px 0 0 18px;display:grid;gap:8px;font-size:15.5px}
+.chiffres{width:100%;border-collapse:collapse;margin:12px 0 4px;font-size:14.5px}
+.chiffres th,.chiffres td{text-align:left;padding:7px 8px;border-bottom:1px solid var(--trait);vertical-align:top}
+.chiffres th{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--doux);font-weight:600}
+.chiffres td:nth-child(n+2){white-space:nowrap;font-variant-numeric:tabular-nums}
+@media (max-width:560px){.chiffres{font-size:13px}.chiffres th,.chiffres td{padding:6px 4px}.chiffres td:nth-child(n+2){white-space:normal}}
