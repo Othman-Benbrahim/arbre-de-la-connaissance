@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Arbre de la connaissance</title>
+<meta name="description" content="Alphabet situationnel : 16 structures transversales et 13 strates pour lire une situation avant de la prévoir.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="haut">
+  <nav class="nav">
+    <span class="marque">Alphabet situationnel</span>
+    <span class="liens-nav">
+      <a href="#matrice">Matrice</a><a href="#strates">Strates</a><a href="#lecture">Lecture</a><a href="#methode">Méthode</a>
+      <button id="theme" class="theme" aria-label="Changer de thème">◐</button>
+    </span>
+  </nav>
+  <div class="hero">
+    <p class="sur">Arbre de la connaissance · recherche en cours</p>
+    <h1>Lire la structure d'une situation<br>avant de la prévoir</h1>
+    <p class="chapeau">Seize structures transversales, présentes de la matière aux institutions, et treize strates de la réalité.
+      Un alphabet réduit pour décrire n'importe quelle situation, puis en dérouler les suites possibles.</p>
+    <ol class="chaine" aria-label="De la syntaxe au contexte">
+      <li><b>Syntaxe</b><span>un alphabet de 16 cartes</span></li>
+      <li><b>Fait</b><span>chaque carte cite ses faits</span></li>
+      <li><b>Situation</b><span>cartes ancrées dans une strate</span></li>
+      <li><b>Contexte</b><span>suites possibles, chiffrées par du code</span></li>
+    </ol>
+  </div>
+</header>
+
+<main>
+<section id="matrice" class="bloc">
+  <div class="tete">
+    <p class="num">01 · Ontologie</p>
+    <h2>Seize cartes et leurs liens</h2>
+    <p>Chaque carte nomme une structure mathématique : hystérésis, graphes, ordres partiels, oscillateurs couplés…
+      Les flèches sont la <em>matrice</em> : quelle carte agit sur quelle autre, et avec quelle force.
+      Survolez ou touchez une carte.</p>
+  </div>
+  <div class="matrice">
+    <svg id="graphe" viewBox="-360 -360 720 720" role="img" aria-label="Graphe des 16 cartes et de leurs liens"></svg>
+    <aside id="fiche" class="fiche" aria-live="polite">
+      <p class="fiche-vide">Choisissez une carte dans le graphe.</p>
+    </aside>
+  </div>
+  <p class="legende"><span class="trait F"></span>forte <span class="trait M"></span>moyenne <span class="trait f"></span>faible
+    · <strong>La matrice est une hypothèse.</strong> Une lecture sans elle est testée en ombre, sur les mêmes questions,
+    pour séparer ce que le modèle lit de ce qu'il recopie.</p>
+</section>
+
+<section id="strates" class="bloc">
+  <div class="tete">
+    <p class="num">02 · Strates</p>
+    <h2>Treize registres de la réalité</h2>
+    <p>Une même carte se lit dans des strates éloignées : un seuil existe en physique comme en diplomatie.
+      La strate dit ce qui compte comme fait. Le chiffre n'est ouvert que là où une règle fixée à l'avance l'autorise.</p>
+  </div>
+  <div id="grille-strates" class="grille-strates"></div>
+  <div id="detail-strate" class="detail-strate" aria-live="polite"></div>
+</section>
+
+<section id="lecture" class="bloc">
+  <div class="tete">
+    <p class="num">03 · Lecture</p>
+    <h2>Comment une lecture se construit</h2>
+    <p>Le modèle de langage lit ; le code décide. Rien de ce qui est calculé ne dépend d'une phrase du modèle.</p>
+  </div>
+  <ol class="etapes">
+    <li><b>Question</b><p>Une question datée, avec son horizon et son critère de résolution.</p></li>
+    <li><b>Faits</b><p>Recherche de faits datés et sourcés, avant la date de la question.</p></li>
+    <li><b>Cartes candidates</b><p>Quelles structures pourraient être à l'œuvre, et lesquelles s'y opposent.</p></li>
+    <li><b>Ancrage</b><p>Une carte ne compte que si elle cite les faits qui la portent. Un test peut la rejeter ; « aucune structure » est une réponse admise.</p></li>
+    <li><b>Moteur</b><p>Un calcul déterministe, à paramètres figés, transforme la lecture en probabilité.</p></li>
+    <li><b>Trois bras</b><p><b>A</b> le jugement du modèle, <b>B</b> le taux de base, <b>C</b> la lecture structurelle. Ils sont comparés sur les mêmes questions.</p></li>
+  </ol>
+</section>
+
+<section id="methode" class="bloc">
+  <div class="tete">
+    <p class="num">04 · Méthode</p>
+    <h2>Des règles avant les résultats</h2>
+  </div>
+  <div class="regles">
+    <article><h3>L'ombre d'abord</h3><p>Toute règle nouvelle tourne à côté de la règle officielle, sans rien changer à ce qui est posté.</p></article>
+    <article><h3>Le critère précède les données</h3><p>Chaque essai a un pré-enregistrement ; la date du commit en est la preuve, et le verdict est calculé par du code.</p></article>
+    <article><h3>Une décision datée</h3><p>Une ombre ne devient officielle que par une décision d'auteur, datée, qui cite la mesure qui la fonde.</p></article>
+    <article><h3>Plusieurs lecteurs</h3><p>Le projet utilise plusieurs modèles. Le lecteur, c'est le modèle et sa version : deux lecteurs ne se mélangent jamais dans une même série.</p></article>
+  </div>
+  <p class="engagement">Aucun chiffre de performance ne sera publié avant une calibration stable.</p>
+</section>
+</main>
+
+<footer class="pied">
+  <p>Othman Ben Brahim · <a href="https://github.com/Othman-Benbrahim/alphabet-situationnel">alphabet-situationnel</a>
+    · données de la page générées depuis le skill <span id="version"></span></p>
+</footer>
+
+<script src="donnees.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
