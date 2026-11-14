@@ -15,7 +15,7 @@
   <nav class="nav">
     <span class="marque">Alphabet situationnel</span>
     <span class="liens-nav">
-      <a href="#matrice">Matrice</a><a href="#strates">Strates</a><a href="#lecture">Lecture</a><a href="#methode">Méthode</a>
+      <a href="#matrice">Cartes</a><a href="#strates">Strates</a><a href="#fondements">Fondements</a><a href="#calcul">Calcul</a><a href="#hypotheses">Hypothèses</a><a href="#methode">Méthode</a>
       <button id="theme" class="theme" aria-label="Changer de thème">◐</button>
     </span>
   </nav>
@@ -51,6 +51,10 @@
   <p class="legende"><span class="trait F"></span>forte <span class="trait M"></span>moyenne <span class="trait f"></span>faible
     · <strong>La matrice est une hypothèse.</strong> Une lecture sans elle est testée en ombre, sur les mêmes questions,
     pour séparer ce que le modèle lit de ce qu'il recopie.</p>
+  <div class="relations">
+    <div><h3>Incompatibles</h3><p class="sous">Deux paires sur 120 ne peuvent pas porter sur le même objet au même moment.</p><ul id="incompat"></ul></div>
+    <div><h3>En tension</h3><p class="sous">Compatibles, mais leur co-présence dit quelque chose de la situation.</p><ul id="tensions"></ul></div>
+  </div>
 </section>
 
 <section id="strates" class="bloc">
@@ -64,9 +68,20 @@
   <div id="detail-strate" class="detail-strate" aria-live="polite"></div>
 </section>
 
+<section id="fondements" class="bloc">
+  <div class="tete">
+    <p class="num">03 · Fondements</p>
+    <h2>D'où viennent les règles</h2>
+    <p id="regle-import" class="citation"></p>
+    <p>Chaque apport théorique est gardé seulement pour le contrôle qu'il a ajouté. Touchez une famille pour en voir le détail.</p>
+  </div>
+  <div id="familles" class="familles"></div>
+  <div id="apports" class="apports" aria-live="polite"></div>
+</section>
+
 <section id="lecture" class="bloc">
   <div class="tete">
-    <p class="num">03 · Lecture</p>
+    <p class="num">04 · Lecture</p>
     <h2>Comment une lecture se construit</h2>
     <p>Le modèle de langage lit ; le code décide. Rien de ce qui est calculé ne dépend d'une phrase du modèle.</p>
   </div>
@@ -80,9 +95,43 @@
   </ol>
 </section>
 
+<section id="calcul" class="bloc">
+  <div class="tete">
+    <p class="num">05 · Calcul</p>
+    <h2>De la lecture à la probabilité</h2>
+    <p>Le moteur est déterministe : mêmes entrées, même sortie. Voici sa logique, puis une maquette à manipuler.</p>
+  </div>
+  <ol id="logique" class="logique"></ol>
+  <div class="maquette">
+    <div class="maq-gauche">
+      <h3>Maquette du moteur</h3>
+      <p class="sous">Choisissez la carte dont on prévoit l'apparition, la fréquence de référence, puis les cartes ancrées. Version simplifiée : même strate, sans base de cas ni bande de sensibilité.</p>
+      <label>Carte visée <select id="cible"></select></label>
+      <label>Fréquence de référence f : <b id="f-val"></b><input id="f" type="range" min="1" max="90" value="20"></label>
+      <div id="sources" class="sources"></div>
+    </div>
+    <div class="maq-droite">
+      <div class="jauge"><div id="barre-f" class="barre f"></div><div id="barre-p" class="barre p"></div></div>
+      <p class="sortie"><span>f <b id="out-f"></b></span><span>p <b id="out-p"></b></span></p>
+      <p id="out-detail" class="sous"></p>
+    </div>
+  </div>
+  <ul id="limites" class="limites"></ul>
+</section>
+
+<section id="hypotheses" class="bloc">
+  <div class="tete">
+    <p class="num">06 · Hypothèses</p>
+    <h2>Ce qui est mis à l'épreuve</h2>
+    <p>Chaque idée passe d'abord en ombre : calculée à côté, scellée, jamais postée. Elle n'entre que par une décision datée ; elle peut aussi être close sans adoption.</p>
+  </div>
+  <div id="filtres" class="filtres" role="group" aria-label="Filtrer par statut"></div>
+  <div id="liste-hyp" class="liste-hyp"></div>
+</section>
+
 <section id="methode" class="bloc">
   <div class="tete">
-    <p class="num">04 · Méthode</p>
+    <p class="num">07 · Méthode</p>
     <h2>Des règles avant les résultats</h2>
   </div>
   <div class="regles">
@@ -101,6 +150,7 @@
 </footer>
 
 <script src="donnees.js"></script>
+<script src="theorie.js"></script>
 <script src="app.js"></script>
 </body>
 </html>

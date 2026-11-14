@@ -99,7 +99,14 @@
         <div><dt>Agit sur</dt><dd class="puces">${puces(sort, "sort")}</dd></div>
         <div><dt>Reçoit l'action de</dt><dd class="puces">${puces(entre, "entre")}</dd></div>
         <div><dt>Voisines à distinguer</dt><dd class="puces">${puces(vois, "")}</dd></div>
-      </dl>`;
+        ${c.inertie ? `<div><dt>Inertie sur trois mois</dt><dd>${c.inertie}</dd></div>` : ""}
+      </dl>
+      ${c.transitions && c.transitions.length ? `<details class="dyn"><summary>Ce qu'elle tend à produire ensuite</summary>
+        <ul>${c.transitions.map(t => `<li><b>${t.vers}</b>${t.force ? ` <span class="force">${t.force}</span>` : ""}${t.mecanisme ? ` — ${t.mecanisme}` : ""}</li>`).join("")}</ul>
+        ${c.freins ? `<p><b>Frein :</b> ${c.freins}</p>` : ""}
+        ${c.bascule ? `<p><b>Indicateurs de bascule :</b> ${c.bascule}</p>` : ""}
+        ${c.entrees ? `<p><b>Y mènent souvent :</b> ${c.entrees}</p>` : ""}
+      </details>` : ""}`;
     fiche.querySelectorAll("[data-code]").forEach(b => b.addEventListener("click", () => montrer(b.dataset.code, true)));
   }
   montrer("SEU", true);
@@ -129,4 +136,83 @@
     });
     grille.appendChild(b);
   });
+
+  // Incompatibilités et tensions
+  const li = (h) => { const e = document.createElement("li"); e.innerHTML = h; return e; };
+  D.incompatibilites.forEach(x => document.getElementById("incompat").appendChild(li(`<b>${x.paire}</b><span>${x.fondement}</span>`)));
+  D.tensions.forEach(x => document.getElementById("tensions").appendChild(li(`<b>${x.paire}</b><span>signale souvent : ${x.signale}</span>`)));
+
+  // Fondements
+  const T = THEORIE;
+  document.getElementById("regle-import").textContent = "« " + T.regle_importation + " »";
+  const fam = document.getElementById("familles"), app = document.getElementById("apports");
+  T.fondements.forEach((f, i) => {
+    const b = document.createElement("button");
+    b.className = "famille"; b.style.setProperty("--k", `var(${f.couleur})`); b.setAttribute("aria-pressed", "false");
+    b.innerHTML = `<span class="t">${f.famille}</span><span class="r">${f.apports.length} apports</span>`;
+    b.addEventListener("click", () => ouvrirFamille(i));
+    fam.appendChild(b);
+  });
+  function ouvrirFamille(i) {
+    fam.querySelectorAll(".famille").forEach((x, j) => x.setAttribute("aria-pressed", String(i === j)));
+    const f = T.fondements[i];
+    app.innerHTML = f.apports.map(a => `<article style="--k:var(${f.couleur})"><h3>${a.source}</h3><p>${a.idee}</p><p class="fonde"><b>A fondé :</b> ${a.fonde}</p></article>`).join("");
+  }
+  ouvrirFamille(0);
+
+  // Logique du calcul
+  document.getElementById("logique").innerHTML = T.logique.map(l => `<li><b>${l.titre}</b><code>${l.formule}</code><p>${l.texte}</p></li>`).join("");
+  document.getElementById("limites").innerHTML = "<li class='titre-lim'>Limites déclarées</li>" + T.limites.map(x => `<li>${x}</li>`).join("");
+
+  // Maquette du moteur (même strate, apparition, sans base de cas)
+  const M = D.moteur, selC = document.getElementById("cible"), fIn = document.getElementById("f"), srcBox = document.getElementById("sources");
+  D.cartes.forEach(c => { const o = document.createElement("option"); o.value = c.code; o.textContent = `${c.glyphe} ${c.nom}`; selC.appendChild(o); });
+  selC.value = "SEU";
+  const pct = x => (100 * x).toLocaleString("fr-FR", { maximumFractionDigits: 1 }) + " %";
+  function sourcesDe(code) { return D.liens.filter(l => l.cible === code); }
+  function dessinerSources() {
+    const s = sourcesDe(selC.value);
+    srcBox.innerHTML = s.length ? "<p class='sous'>Cartes ancrées (sources de la carte visée selon la matrice) :</p>" + s.map(l =>
+      `<label class="src"><input type="checkbox" value="${l.source}" data-f="${l.force}"> ${parCode[l.source].glyphe} ${parCode[l.source].nom} <span class="force">${FORCE[l.force]} · λ ${String(M.lambda_[l.force]).replace(".", ",")}</span></label>`).join("")
+      : "<p class='sous'>Aucune carte de la matrice ne fait apparaître celle-ci.</p>";
+    srcBox.querySelectorAll("input").forEach(i => i.addEventListener("change", calculer));
+    calculer();
+  }
+  function calculer() {
+    const f = fIn.value / 100;
+    document.getElementById("f-val").textContent = pct(f);
+    let LR = 1; const actives = [];
+    srcBox.querySelectorAll("input:checked").forEach(i => { LR *= M.lambda_[i.dataset.f]; actives.push(parCode[i.value].nom); });
+    const LRc = Math.min(LR, M.plafond_LR);
+    let p = f * LRc / (1 - f + f * LRc);
+    if (p > f) p = Math.min(p, Math.max(f, M.plafond_p0));
+    document.getElementById("out-f").textContent = pct(f);
+    document.getElementById("out-p").textContent = pct(p);
+    document.getElementById("barre-f").style.width = pct(f).replace(",", ".").replace(" %", "%");
+    document.getElementById("barre-p").style.width = (100 * p) + "%";
+    document.getElementById("out-detail").textContent = actives.length
+      ? `Produit des λ : ${LR.toLocaleString("fr-FR", { maximumFractionDigits: 2 })}${LR > M.plafond_LR ? " (plafonné à " + M.plafond_LR + ")" : ""}. Cote multipliée, jamais divisée : sans les freins, une carte ancrée ne peut que faire monter p.`
+      : "Aucune carte ancrée : p = f. C'est le taux de base, le bras B.";
+  }
+  selC.addEventListener("change", dessinerSources); fIn.addEventListener("input", calculer);
+  dessinerSources();
+
+  // Hypothèses
+  const ST = { essai: "Essai pré-enregistré", ombre: "En ombre", adopte: "Adopté", clos: "Clos sans adoption" };
+  const filtres = document.getElementById("filtres"), liste = document.getElementById("liste-hyp");
+  let filtre = "tout";
+  ["tout", "essai", "ombre", "adopte", "clos"].forEach(k => {
+    const b = document.createElement("button");
+    const n = k === "tout" ? T.hypotheses.length : T.hypotheses.filter(h => h.statut === k).length;
+    b.className = "filtre"; b.dataset.k = k; b.textContent = `${k === "tout" ? "Toutes" : ST[k]} (${n})`;
+    b.addEventListener("click", () => { filtre = k; afficherHyp(); });
+    filtres.appendChild(b);
+  });
+  function afficherHyp() {
+    filtres.querySelectorAll(".filtre").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.k === filtre)));
+    liste.innerHTML = T.hypotheses.filter(h => filtre === "tout" || h.statut === filtre).map(h =>
+      `<article class="hyp ${h.statut}"><span class="statut">${ST[h.statut]}</span><h3>${h.titre}</h3>
+        <p class="q">${h.question}</p><p><b>Origine :</b> ${h.inspiration}</p><p><b>Règle :</b> ${h.critere}</p></article>`).join("");
+  }
+  afficherHyp();
 })();
