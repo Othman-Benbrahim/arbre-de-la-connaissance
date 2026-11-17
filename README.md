@@ -1,9 +1,11 @@
 # Arbre de la connaissance
 
 Page de présentation de l'**alphabet situationnel** : 16 structures transversales (cartes), 13 strates, la matrice de
-leurs liens, et la méthode du bot de prévision qui les met à l'épreuve.
+leurs liens, et la méthode du bot de prévision qui les met à l'épreuve : le catalogue des mécanismes, l'observatoire
+inductif et les sources des signaux faibles (mise à jour du 17 novembre 2026).
 
 - `index.html`, `style.css`, `app.js` : la page, sans dépendance ni étape de construction.
+- `theorie.js` : rédigé à la main depuis le README du bot, ses pré-enregistrements et son catalogue des mécanismes.
 - `donnees.js` : généré depuis le skill [`alphabet-situationnel`](https://github.com/Othman-Benbrahim/alphabet-situationnel)
   (index des cartes, fiches des strates, matrice du moteur). Ne pas le modifier à la main.
 

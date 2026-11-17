@@ -215,4 +215,25 @@
         <p class="q">${h.question}</p><p><b>Origine :</b> ${h.inspiration}</p><p><b>Règle :</b> ${h.critere}</p></article>`).join("");
   }
   afficherHyp();
+
+  // Mécanismes (catalogue du bot) et sources des signaux faibles
+  const EM = { observatoire: "Observatoire", preenregistre: "Pré-enregistré", propose: "Proposé", rejete: "Rejeté" };
+  const fm = document.getElementById("filtres-meca"), lm = document.getElementById("liste-meca");
+  let filtreM = "tout";
+  ["tout", "observatoire", "preenregistre", "propose", "rejete"].forEach(k => {
+    const b = document.createElement("button");
+    const n = k === "tout" ? T.mecanismes.length : T.mecanismes.filter(m => m.etat === k).length;
+    b.className = "filtre"; b.dataset.k = k; b.textContent = `${k === "tout" ? "Tous" : EM[k]} (${n})`;
+    b.addEventListener("click", () => { filtreM = k; afficherMeca(); });
+    fm.appendChild(b);
+  });
+  function afficherMeca() {
+    fm.querySelectorAll(".filtre").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.k === filtreM)));
+    lm.innerHTML = T.mecanismes.filter(m => filtreM === "tout" || m.etat === filtreM).map(m =>
+      `<article class="hyp meca ${m.etat}"><span class="statut">${m.code} · ${EM[m.etat]}</span><h3>${m.titre}</h3>
+        <p><b>Indicateur :</b> ${m.indicateur}</p><p><b>Sens :</b> ${m.sens}</p><p>${m.note}</p></article>`).join("");
+  }
+  afficherMeca();
+  document.getElementById("sources-ouvertes").innerHTML = T.sources.map(f =>
+    `<div class="famille-source"><h4>${f.famille}</h4><ul>${f.items.map(i => `<li>${i}</li>`).join("")}</ul></div>`).join("");
 })();

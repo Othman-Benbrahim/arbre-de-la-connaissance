@@ -193,3 +193,24 @@ h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:700;letter-spacing:-.01e
 .chiffres th{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--doux);font-weight:600}
 .chiffres td:nth-child(n+2){white-space:nowrap;font-variant-numeric:tabular-nums}
 @media (max-width:560px){.chiffres{font-size:13px}.chiffres th,.chiffres td{padding:6px 4px}.chiffres td:nth-child(n+2){white-space:normal}}
+
+/* 2026-11-17 : virage, mécanismes, sources */
+.virage{background:var(--carte);border:1px solid var(--accent);border-radius:14px;padding:18px 20px}
+.virages{margin:10px 0 0 20px;display:grid;gap:10px;font-size:15.5px}
+.chiffres tr.groupe td{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--doux);font-weight:600;padding-top:14px;white-space:normal}
+.parcours{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:0 0 22px;counter-reset:p}
+.parcours li{background:var(--carte);border:1px solid var(--trait);border-radius:14px;padding:14px 16px;counter-increment:p}
+.parcours li b::before{content:counter(p) " · ";color:var(--doux);font-weight:500}
+.parcours p{font-size:14px;color:var(--doux);margin-top:6px}
+.hyp.meca.observatoire .statut{color:var(--accent);border-color:var(--accent)}
+.hyp.meca.preenregistre .statut{color:var(--accent2);border-color:var(--accent2)}
+.hyp.meca.propose .statut{color:var(--doux);border-color:var(--trait)}
+.hyp.meca.rejete .statut{color:var(--chaud);border-color:var(--chaud)}
+.sources-tete{margin-top:34px}
+.sources-tete h3{font-size:22px;margin-bottom:6px}
+.familles-sources{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+.famille-source{background:var(--carte);border:1px solid var(--trait);border-radius:14px;padding:16px 18px}
+.famille-source h4{font-size:15px;margin-bottom:8px}
+.famille-source ul{margin-left:18px;display:grid;gap:4px;font-size:14px;color:var(--doux)}
+@media (max-width:860px){.parcours{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.parcours{grid-template-columns:1fr}}

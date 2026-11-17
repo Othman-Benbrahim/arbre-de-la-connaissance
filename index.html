@@ -15,7 +15,7 @@
   <nav class="nav">
     <span class="marque">Alphabet situationnel</span>
     <span class="liens-nav">
-      <a href="#projet">Projet</a><a href="#matrice">Cartes</a><a href="#strates">Strates</a><a href="#fondements">Fondements</a><a href="#calcul">Calcul</a><a href="#hypotheses">Hypothèses</a><a href="#methode">Méthode</a>
+      <a href="#projet">Projet</a><a href="#matrice">Cartes</a><a href="#strates">Strates</a><a href="#fondements">Fondements</a><a href="#calcul">Calcul</a><a href="#mecanismes">Mécanismes</a><a href="#hypotheses">Hypothèses</a><a href="#methode">Méthode</a>
       <button id="theme" class="theme" aria-label="Changer de thème">◐</button>
     </span>
   </nav>
@@ -56,28 +56,42 @@
       questions déjà résolues de ForecastBench ; il le compare à un taux de base. Le but n'est pas de prouver que l'alphabet
       gagne, mais de trouver la meilleure prévision possible : l'alphabet est à la fois un défi et un instrument, et
       ce qu'il ne sait pas faire est aussi un résultat.</p>
+
+    <div class="virage">
+      <p class="num">Ce qui a changé depuis le 15 novembre</p>
+      <p class="sous">Le premier verdict était net : l'alphabet, utilisé comme une machine à calculer des probabilités, fait moins bien qu'un simple taux de base. Le projet n'a pas été abandonné ; il a changé d'angle, sur quatre points.</p>
+      <ol class="virages">
+        <li><b>L'alphabet ne calcule plus, il sert de grille.</b> Plutôt que de transformer les cartes en multiplicateurs, on demande au modèle de noter séparément quelques structures (freins, tendance, engagements, mémoire…) avant de juger. Sur 116 questions de conflits jamais lues, ce détour corrige le jugement direct, qui faisait moins bien que le taux de base, et le ramène à son niveau (un peu au-dessus sur les questions les plus difficiles). C'est le premier signe mesuré que l'alphabet sert à quelque chose ; il reste à confirmer.</li>
+        <li><b>De la déduction à l'induction.</b> Au lieu de déduire une prévision d'une théorie générale, on rassemble des mécanismes un à un, « en grappillant » : une phrase, un indicateur observable avant la date, un sens fixé d'avance. Un mécanisme n'est retenu que s'il se vérifie lot après lot de questions, par un calcul automatique. Dix-sept fiches sont ouvertes (section 06).</li>
+        <li><b>Les signaux faibles, collectés chaque jour.</b> Une trentaine de sources ouvertes sont relevées en continu : censure et coupures d'internet, sanctions, avions d'État, brouillage GPS, détroits, feux vus par satellite, prix alimentaires, silences statistiques, flux de presse et d'institutions. Chacune nourrit un indicateur en ombre, jamais posté tant qu'il n'a pas fait ses preuves.</li>
+        <li><b>Les lectures d'à côté.</b> Géographie universitaire, revues de sciences sociales, analyses stratégiques, rapports publics : des lectures sans lien apparent avec la prévision ont donné des outils précis (la diffusion spatiale des troubles, un dictionnaire de pays d'un laboratoire CNRS devenu second codeur, des mécanismes tirés de notes de l'IRSEM ou du Rubicon). C'est le pari du projet : les connexions inattendues entre disciplines, c'est l'arbre de la connaissance en acte.</li>
+      </ol>
+    </div>
+
     <div class="etat">
-      <p class="num">Où en est le projet · chiffres au 14 novembre 2026</p>
-      <p class="sous">Perte logarithmique moyenne : plus elle est basse, meilleure est la prévision. Ces chiffres sont négatifs pour l'alphabet, et publiés comme tels.</p>
+      <p class="num">Où en est le projet · chiffres au 17 novembre 2026</p>
+      <p class="sous">Perte logarithmique moyenne : plus elle est basse, meilleure est la prévision. Les chiffres sont publiés tels qu'ils sont, négatifs compris.</p>
       <table class="chiffres">
-        <thead><tr><th>Mesure</th><th>Effectif</th><th>C (alphabet)</th><th>B (taux de base)</th></tr></thead>
+        <thead><tr><th>Mesure</th><th>Effectif</th><th>Proposé</th><th>Taux de base</th></tr></thead>
         <tbody>
-          <tr><td>ForecastBench, toutes lectures chiffrées (géopolitique et exploratoires)</td><td>337 lectures</td><td>0,769</td><td>0,631</td></tr>
-          <tr><td>dont géopolitique, seule strate où C peut être posté</td><td>93 lectures</td><td>0,800</td><td>0,495</td></tr>
-          <tr><td>mêmes lectures, cartes lues comme des causes (noisy-or, en ombre)</td><td>337 lectures</td><td>0,736</td><td>0,631</td></tr>
+          <tr class="groupe"><td colspan="4">L'alphabet comme calculateur (C), avant le 15 novembre</td></tr>
+          <tr><td>ForecastBench, toutes lectures chiffrées</td><td>337 lectures</td><td>0,769</td><td>0,631</td></tr>
           <tr><td>programme génératif (en ombre), là où il est calculé</td><td>221 lectures</td><td>0,670</td><td>0,595</td></tr>
-          <tr><td>Liens appris sur les issues, jeu de jugement (essai clos, non adopté)</td><td>123 lectures</td><td>0,660</td><td>0,659</td></tr>
+          <tr><td>liens appris sur les issues (essai clos)</td><td>123 lectures</td><td>0,660</td><td>0,659</td></tr>
+          <tr class="groupe"><td colspan="4">Depuis : l'alphabet comme grille, les indicateurs, le contexte</td></tr>
+          <tr><td>Conflits : notes séparées sur 7 cartes, puis jugement (jugement direct : 0,233)</td><td>116 questions</td><td>0,210</td><td>0,211</td></tr>
+          <tr><td>Conflits : pluie et conseils aux voyageurs, modèle figé (essai échoué)</td><td>199 questions</td><td>0,644</td><td>0,492</td></tr>
+          <tr><td>Températures : prévision météo archivée (premier essai, critère non atteint)</td><td>212 questions</td><td>0,645</td><td>0,694</td></tr>
+          <tr><td>Séries : taux de base récent ; modèle de fondation Chronos-2 (essais clos)</td><td>650 ; 832</td><td>0,681 ; 0,709</td><td>0,679 ; 0,688</td></tr>
           <tr><td>Metaculus, questions réelles résolues</td><td>0</td><td>—</td><td>—</td></tr>
         </tbody>
       </table>
       <ul>
-        <li>Une question peut avoir été lue plusieurs fois, par des versions ou des modèles différents : les effectifs comptent des lectures, pas des questions.</li>
-        <li>Conséquence : depuis le 14 novembre, le bot poste le taux de base là où C est calculé ; C reste calculé et scellé.</li>
-        <li>Changer la règle de calcul rend C moins mauvais, pas meilleur que le taux de base : le défaut principal est ailleurs, dans ce que le moteur reçoit (un lecteur qui recopie la matrice, des cartes qui ne font que monter). D'où l'ombre combinée ouverte le 15 novembre : génératif, lecture sans matrice et correction symétrique.</li>
-        <li>Dans le monde simulé du skill, avec un lecteur parfait, la règle de combinaison publiée perd 0,17 point de score sur le taux de base ; la variante générative, en ombre, en gagne environ 1. Il faudrait plus de 3 000 questions résolues pour détecter un écart de cette taille.</li>
-        <li>Améliorer le taux de base lui-même : un modèle autorégressif et un taux saisonnier ont été testés le 15 novembre sur 400 questions de séries jamais vues, sans modèle de langue. Aucun des deux ne bat le compte simple ; essais clos sans adoption. Le saisonnier gagne seulement sur les températures (DBnomics).</li>
-        <li>Un alphabet découvert dans les séries elles-mêmes (motifs ordinaux) ne fait pas mieux que le taux de base sur 585 questions : à court horizon, ces séries sont presque sans structure.</li>
-        <li>Premier résultat positif validé : sur 204 questions, la moyenne du jugement d'un modèle de langue (qui voit les mêmes données que le taux de base) et du taux de base bat le taux de base seul (0,599 contre 0,612 ; critère pré-enregistré atteint au second regard). Le gain est concentré sur les conflits (0,494 contre 0,526). Depuis le 15 novembre, le bot poste cette moyenne pour les événements géopolitiques et de politique intérieure seulement.</li>
+        <li><b>Une erreur trouvée et corrigée.</b> Le 15 novembre, notre propre taux de base était faux sur une forme de question de conflits (« plus de dix fois plus que la moyenne ») : 40 % annoncés pour 0 oui sur 74 questions. Corrigé, il passe de 0,493 à 0,241 sur 150 questions. Un résultat positif adopté le matin même (moyenne du jugement du modèle et du taux de base) reposait en partie sur cette erreur : il a été retiré dans l'heure. Un garde-fou compare désormais, pour chaque forme de question, les oui observés aux oui attendus.</li>
+        <li><b>Ce qui est posté sur Metaculus</b> : le taux de base, là où la lecture de l'alphabet est calculée ; elle reste calculée et scellée, en ombre. Aucun résultat Metaculus n'est encore lisible : l'API ne renvoie pas les résolutions au compte du bot.</li>
+        <li>Le premier signe positif (notes séparées) atteint le critère fixé d'avance seulement au niveau nominal, pas au niveau corrigé pour le nombre d'essais : un second regard à 200 questions tranchera. Les cartes qui portent l'information sont CONTRAINTE (des freins forts : 3 % de oui), CROISSANCE et RÉCIPROCITÉ.</li>
+        <li>Contrôle de fidélité des synthèses de recherche du modèle : sur 507 nombres cités dans 30 synthèses, 6 sont absents des sources lues (1,2 %), et aucun n'est une invention (arrondis, calculs, dates dérivées).</li>
+        <li>Les indicateurs de signaux faibles sont trop jeunes pour être jugés : la plupart n'ont que quelques semaines d'historique. Premiers bilans de l'observatoire attendus fin novembre.</li>
       </ul>
     </div>
     <p class="motivation"><b>Pourquoi je le fais.</b> Je suis développeur et chercheur indépendant. Ce qui m'intéresse,
@@ -173,9 +187,33 @@
   <ul id="limites" class="limites"></ul>
 </section>
 
+<section id="mecanismes" class="bloc">
+  <div class="tete">
+    <p class="num">06 · Mécanismes</p>
+    <h2>Raisonner par induction</h2>
+    <p>Un mécanisme est une régularité qu'on peut dire en une phrase : « les troubles des pays voisins gagnent le pays »,
+      « le silence statistique annonce une mauvaise nouvelle ». Chacun est rangé dans un catalogue avec un indicateur
+      observable avant la date de la question et un sens fixé d'avance. Un modèle de langue peut en proposer ; il ne les juge jamais.</p>
+  </div>
+  <ol class="parcours" aria-label="Les étapes d'un mécanisme">
+    <li><b>Rasoir d'Ockham</b><p>Une phrase, peu de paramètres, un sens fixé d'avance. Existe-t-il plus simple ?</p></li>
+    <li><b>Observatoire</b><p>Le même sens doit revenir dans au moins 3 lots de questions sur 4, calculé par le code.</p></li>
+    <li><b>Pré-enregistrement</b><p>Sens et force figés, critère écrit et daté avant de regarder les résultats.</p></li>
+    <li><b>Décision datée</b><p>Seule une décision d'auteur fait passer un mécanisme de l'ombre à la prévision postée.</p></li>
+  </ol>
+  <div id="filtres-meca" class="filtres" role="group" aria-label="Filtrer les mécanismes par état"></div>
+  <div id="liste-meca" class="liste-hyp"></div>
+
+  <div class="tete sources-tete">
+    <h3>Les sources des signaux faibles</h3>
+    <p>Relevées chaque jour par des collecteurs automatiques, gratuites, en source ouverte. Pour les sources sans licence, seuls des comptes agrégés sont gardés. Aucune personne privée n'est suivie : seulement les actes publics de personnalités publiques dans leur fonction, comptés en agrégé.</p>
+  </div>
+  <div id="sources-ouvertes" class="familles-sources"></div>
+</section>
+
 <section id="hypotheses" class="bloc">
   <div class="tete">
-    <p class="num">06 · Hypothèses</p>
+    <p class="num">07 · Hypothèses</p>
     <h2>Ce qui est mis à l'épreuve</h2>
     <p>Chaque idée passe d'abord en ombre : calculée à côté, scellée, jamais postée. Elle n'entre que par une décision datée ; elle peut aussi être close sans adoption.</p>
   </div>
@@ -185,13 +223,17 @@
 
 <section id="methode" class="bloc">
   <div class="tete">
-    <p class="num">07 · Méthode</p>
+    <p class="num">08 · Méthode</p>
     <h2>Des règles avant les résultats</h2>
   </div>
   <div class="regles">
     <article><h3>L'ombre d'abord</h3><p>Toute règle nouvelle tourne à côté de la règle officielle, sans rien changer à ce qui est posté.</p></article>
     <article><h3>Le critère précède les données</h3><p>Chaque essai a un pré-enregistrement ; la date du commit en est la preuve, et le verdict est calculé par du code.</p></article>
     <article><h3>Une décision datée</h3><p>Une ombre ne devient officielle que par une décision d'auteur, datée, qui cite la mesure qui la fonde.</p></article>
+    <article><h3>Le plus simple d'abord</h3><p>Avant tout test, le rasoir d'Ockham : une idée qui demande beaucoup de paramètres, ou dont le sens n'est pas fixé d'avance, n'est pas testée.</p></article>
+    <article><h3>Des critères automatisables</h3><p>Ce qui décide est un calcul, jamais l'avis d'un modèle de langue. Un modèle peut lire, proposer, résumer ; il ne juge pas ses propres idées.</p></article>
+    <article><h3>Une erreur se publie</h3><p>Quand une erreur est trouvée, elle est corrigée, datée et publiée, avec ce qu'elle a fait tomber. Le 15 novembre, un résultat positif a été retiré à cause d'elle.</p></article>
+    <article><h3>Des sources éthiques</h3><p>Données publiques ou sous licence ouverte, conditions des sites respectées, aucun blocage contourné, aucun dossier sur une personne privée.</p></article>
     <article><h3>Plusieurs lecteurs</h3><p>Le projet utilise plusieurs modèles. Le lecteur, c'est le modèle et sa version : deux lecteurs ne se mélangent jamais dans une même série.</p></article>
   </div>
   <p class="engagement">Les chiffres sont publiés tels qu'ils sont, négatifs compris (voir « Où en est le projet »). Le détail est dans le <a href="https://github.com/Othman-Benbrahim/metac-bot-template/tree/main/registre">registre public</a> et les <a href="https://github.com/Othman-Benbrahim/metac-bot-template/tree/main/preenregistrements">pré-enregistrements</a>.</p>
