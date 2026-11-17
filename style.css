@@ -176,6 +176,7 @@ h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:700;letter-spacing:-.01e
 .hyp.ombre .statut{color:var(--doux);border-color:var(--trait)}
 .hyp.adopte .statut{color:var(--accent2);border-color:var(--accent2)}
 .hyp.clos .statut{color:var(--chaud);border-color:var(--chaud)}
+.hyp.piste .statut{color:var(--r2);border-color:var(--r2)}
 .hyp h3{font-size:19px;margin:10px 0 6px}
 .hyp .q{font-style:italic;color:var(--encre);margin-bottom:8px}
 .hyp p{font-size:14.5px;color:var(--doux);margin-top:4px}

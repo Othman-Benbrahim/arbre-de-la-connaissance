@@ -198,10 +198,10 @@
   dessinerSources();
 
   // Hypothèses
-  const ST = { essai: "Essai pré-enregistré", ombre: "En ombre", adopte: "Adopté", clos: "Clos sans adoption" };
+  const ST = { essai: "Essai pré-enregistré", ombre: "En ombre", piste: "Piste, non construite", adopte: "Adopté", clos: "Clos sans adoption" };
   const filtres = document.getElementById("filtres"), liste = document.getElementById("liste-hyp");
   let filtre = "tout";
-  ["tout", "essai", "ombre", "adopte", "clos"].forEach(k => {
+  ["tout", "essai", "ombre", "piste", "adopte", "clos"].forEach(k => {
     const b = document.createElement("button");
     const n = k === "tout" ? T.hypotheses.length : T.hypotheses.filter(h => h.statut === k).length;
     b.className = "filtre"; b.dataset.k = k; b.textContent = `${k === "tout" ? "Toutes" : ST[k]} (${n})`;
