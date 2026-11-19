@@ -281,3 +281,13 @@ h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:700;letter-spacing:-.01e
 @media (max-width:820px){.eco-grille{grid-template-columns:1fr}}
 #eco-carte .cp.vif rect{fill:color-mix(in srgb,var(--chaud) 18%,var(--fond))}
 .etat-jour{font-size:15px}.etat-jour.vif b{color:var(--chaud)}
+
+/* Étude de cas : qui possède l'information */
+.cas-schema{overflow-x:auto;background:var(--carte);border:1px solid var(--trait);border-radius:10px;padding:8px}
+#cas-medias{width:100%;min-width:720px;height:auto;display:block}
+#cas-medias .cas-lien{fill:none;stroke-width:1.2;opacity:.55}
+#cas-medias text{fill:var(--encre);font-size:11px}
+#cas-medias .cas-nat{font-weight:600;font-size:12px}
+#cas-medias .cas-prop{font-weight:600}
+#cas-medias .cas-titre{fill:var(--doux)}
+.cas-plateformes{line-height:1.6}

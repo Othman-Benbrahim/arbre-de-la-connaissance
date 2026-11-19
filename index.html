@@ -8,14 +8,14 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=20261119b">
+<link rel="stylesheet" href="style.css?v=20261119c">
 </head>
 <body>
 <header class="haut">
   <nav class="nav">
     <span class="marque">Alphabet situationnel</span>
     <span class="liens-nav">
-      <a href="#projet">Projet</a><a href="#matrice">Cartes</a><a href="#strates">Strates</a><a href="#cartographie">Écosystèmes</a><a href="#fondements">Fondements</a><a href="#calcul">Calcul</a><a href="#mecanismes">Mécanismes</a><a href="#hypotheses">Hypothèses</a><a href="#methode">Méthode</a>
+      <a href="#projet">Projet</a><a href="#matrice">Cartes</a><a href="#strates">Strates</a><a href="#cartographie">Écosystèmes</a><a href="#cas-information">Information</a><a href="#fondements">Fondements</a><a href="#calcul">Calcul</a><a href="#mecanismes">Mécanismes</a><a href="#hypotheses">Hypothèses</a><a href="#methode">Méthode</a>
       <button id="theme" class="theme" aria-label="Changer de thème">◐</button>
     </span>
   </nav>
@@ -216,6 +216,25 @@
   </div>
 </section>
 
+<section id="cas-information" class="bloc">
+  <div class="tete">
+    <p class="num">03 bis · Étude de cas</p>
+    <h2>Qui possède l'information ?</h2>
+    <p>Une source n'est pas neutre : chaque titre a un propriétaire, et chaque plateforme un modèle de revenus et un
+      algorithme qui choisit ce que l'on voit. Le schéma relie les titres d'information français à leur propriétaire de
+      contrôle, rangés par nature de propriété. Il sert à relativiser l'indépendance des sources que le bot lit, et à
+      tester un mécanisme : une convergence éditoriale (peu de propriétaires pour beaucoup de titres) et une convergence
+      algorithmique (peu de plateformes pour beaucoup de lecteurs) pèsent-elles sur ce qui est publié et sur ce qui
+      circule ? On le mesure sur ce qui est publié (part de couverture par sujet et par groupe de propriétaires), jamais
+      en prêtant des intentions aux personnes.</p>
+  </div>
+  <p id="cas-bilan" class="eco-bilan"></p>
+  <div class="cas-schema"><svg id="cas-medias" role="img" aria-label="Titres d'information français reliés à leur propriétaire de contrôle, par nature de propriété"></svg></div>
+  <p id="cas-source" class="sous"></p>
+  <h3>Les plateformes</h3>
+  <ul id="cas-plateformes" class="cas-plateformes"></ul>
+</section>
+
 <section id="fondements" class="bloc">
   <div class="tete">
     <p class="num">04 · Fondements</p>
@@ -326,10 +345,12 @@
     · données de la page générées depuis le skill <span id="version"></span></p>
 </footer>
 
-<script src="donnees.js?v=20261119b"></script>
-<script src="theorie.js?v=20261119b"></script>
-<script src="app.js?v=20261119b"></script>
-<script src="ecosystemes.js?v=20261119b"></script>
-<script src="carte.js?v=20261119b"></script>
+<script src="donnees.js?v=20261119c"></script>
+<script src="theorie.js?v=20261119c"></script>
+<script src="app.js?v=20261119c"></script>
+<script src="ecosystemes.js?v=20261119c"></script>
+<script src="carte.js?v=20261119c"></script>
+<script src="cas_medias.js?v=20261119c"></script>
+<script src="cas.js?v=20261119c"></script>
 </body>
 </html>
