@@ -22,11 +22,14 @@
   const B = ECO.bilan;
   const traces = ECO.compartiments.flatMap(c => c.traces);
   const collectees = ECO.compartiments.filter(c => c.traces.some(t => t.statut === "collecte")).length;
+  const lus = ECO.compartiments.filter(c => c.etat).length;
+  const vifs = ECO.compartiments.filter(c => c.etat && Math.abs(c.etat.z) >= 1.5).length;
   const mesurees = ECO.relations.filter(r => r.statut === "verifie").length;
   $("eco-bilan").innerHTML = [
     [B.themes, "écosystèmes décrits"], [B.compartiments, "compartiments"], [B.relations, "relations typées"],
     [B.relations_avec_intensite, "avec une règle d'intensité"], [ECO.niveaux.length, "niveaux d'organisation"],
-    [collectees, "compartiments lus par une collecte"], [mesurees, "forces mesurées sur les données"]
+    [collectees, "compartiments rattachés à une collecte"], [lus, "lus aujourd'hui par une série"],
+    [vifs, "loin de leur habitude (écart ≥ 1,5)"], [mesurees, "forces mesurées sur les données"]
   ].map(([n, t]) => `<div><b>${n}</b><span>${t}</span></div>`).join("");
   $("eco-date").textContent = `Données du ${ECO.date} (bot ${ECO.version_bot}).`;
 
@@ -112,7 +115,8 @@
       const w = Math.min(pas - 14, 190);
       g.appendChild(el("rect", { x: -w / 2, y: -19, width: w, height: 38, rx: 10 }));
       const t1 = el("text", { y: -2, class: "n" }); t1.textContent = c.nom.length > 30 ? c.nom.slice(0, 29) + "…" : c.nom; g.appendChild(t1);
-      const t2 = el("text", { y: 13, class: "s" }); t2.textContent = `${tailleTxt(c.taille)}${c.traces.some(z => z.statut === "collecte") ? " · ●" : ""}`; g.appendChild(t2);
+      const t2 = el("text", { y: 13, class: "s" }); t2.textContent = `${tailleTxt(c.taille)}${c.etat ? " · ● " + (c.etat.z > 0 ? "+" : "") + String(c.etat.z).replace(".", ",") : ""}`; g.appendChild(t2);
+      if (c.etat && Math.abs(c.etat.z) >= 1.5) g.classList.add("vif");
       g.addEventListener("click", () => detail(c.id));
       g.addEventListener("keydown", e => { if (e.key === "Enter") detail(c.id); });
       svg.appendChild(g);
@@ -131,6 +135,7 @@
     $("eco-detail").innerHTML = `<p class="num">${esc(n.nom || c.org || "niveau non déclaré")}</p><h3>${esc(c.nom)}</h3>
       <p class="sous">taille ${tailleTxt(c.taille)} · vitesse ${esc(c.vitesse)} · espace ${esc(c.espace)}</p>
       ${c.acteurs.length ? `<h4>Acteurs, chacun à son échelle</h4><ul class="acteurs">${c.acteurs.map(a => `<li><b>${esc(a.nom)}</b> <span class="badge">${esc(a.taille)}</span>${a.facette ? `<span class="badge f">${FACETTES[a.facette] || esc(a.facette)}</span>` : ""}</li>`).join("")}</ul>` : ""}
+      ${c.etat ? `<h4>État du jour</h4><p class="etat-jour ${Math.abs(c.etat.z) >= 1.5 ? "vif" : ""}">Écart à son habitude : <b>${(c.etat.z > 0 ? "+" : "") + String(c.etat.z).replace(".", ",")}</b> · dernière valeur ${String(c.etat.derniere_valeur).replace(".", ",")} le ${esc(c.etat.dernier_jour)} <span class="sous">· ${esc(c.etat.adaptateur)}</span></p>` : ""}
       <h4>Traces</h4><ul class="traces">${c.traces.map(t => `<li class="${t.statut}">${esc(t.source)} <span class="sous">· ${STATUT_TRACE[t.statut] || esc(t.statut)}</span></li>`).join("") || "<li>aucune</li>"}</ul>
       ${sortantes.length ? `<h4>Agit sur</h4><ul class="rels">${sortantes.map(r => rel(r, r.vers)).join("")}</ul>` : ""}
       ${entrantes.length ? `<h4>Subit</h4><ul class="rels">${entrantes.map(r => rel(r, r.de)).join("")}</ul>` : ""}

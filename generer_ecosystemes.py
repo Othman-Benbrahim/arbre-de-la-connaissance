@@ -38,6 +38,16 @@ def main() -> int:
                           for a in n.get("acteurs") or []],
               "traces": [{"source": t.get("source"), "statut": t.get("statut"), "adaptateur": t.get("adaptateur")} for t in n["traces"]]}
              for n in s["noeuds"]]
+    import carte as ca
+    try:
+        etat = ca.Carte(BOT / "ecosystemes", BOT / "registre").etat()
+    except Exception as e:
+        print(f"état non calculé ({type(e).__name__}: {e})")
+        etat = {}
+    for c in comps:
+        e = etat.get(c["id"]) or {}
+        if "z" in e:
+            c["etat"] = {k: e[k] for k in ("adaptateur", "dernier_jour", "derniere_valeur", "z")}
     rel = [{k: r.get(k) for k in ("de", "vers", "forme", "effet", "retour", "style", "delai", "force", "intensite", "coupure",
                                     "statut", "texte")} for r in s["relations"]]
     try:
